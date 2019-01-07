@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'df-extension-ios'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = '닥프렌즈의 기본 extension 라이브러리'
 
 # This description is used to generate tags and improve search results.
