@@ -21,7 +21,7 @@ pod 'df-extension-ios'
 
 ## Author
 
-pikachu987, pikachu77769@gmail.com
+Docfriends, apps@docfriends.com
 
 ## License
 

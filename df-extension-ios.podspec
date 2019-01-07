@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/Docfriends-Dev/df-extension-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'pikachu987' => 'pikachu77769@gmail.com' }
+  s.author           = { 'Docfriends' => 'apps@docfriends.com' }
   s.source           = { :git => 'https://github.com/Docfriends-Dev/df-extension-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
