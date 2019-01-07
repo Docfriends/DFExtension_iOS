@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'df-extension-ios_Example' do
+  pod 'df-extension-ios', :path => '../'
+
+  target 'df-extension-ios_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

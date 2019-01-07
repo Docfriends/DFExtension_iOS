@@ -1,0 +1,6 @@
+framework module df_extension_ios {
+  umbrella header "df-extension-ios-umbrella.h"
+
+  export *
+  module * { export * }
+}

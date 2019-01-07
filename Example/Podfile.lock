@@ -1,0 +1,16 @@
+PODS:
+  - df-extension-ios (0.1.0)
+
+DEPENDENCIES:
+  - df-extension-ios (from `../`)
+
+EXTERNAL SOURCES:
+  df-extension-ios:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  df-extension-ios: 01453f5e8a9960e67161a4c30dd8f0702f43fddd
+
+PODFILE CHECKSUM: f4503cc8078a39012668ffcd13ae13c5a7655edc
+
+COCOAPODS: 1.5.3
