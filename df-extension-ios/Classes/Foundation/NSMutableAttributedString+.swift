@@ -46,3 +46,29 @@ public extension NSMutableAttributedString {
         self.append(attachmentString)
     }
 }
+
+public extension NSAttributedString {
+    
+    /**
+     URL링크 Attributed 변경 가져오기
+     
+     - parameter color: UIColor
+     - parameter handler: @escaping (([NSAttributedString.Key : Any], NSRange) -> Void)
+     */
+    public func urlLink(_ color: UIColor, handler: @escaping (([NSAttributedString.Key : Any], NSRange) -> Void)) {
+        let text = self.string
+        text.urlLink { (url) in
+            if let range = text.range(of: url) {
+                text.enumerateSubstrings(in: range, options: String.EnumerationOptions.bySentences) {
+                    (substring, substringRange, _, _) in
+                    
+                    let attributed = [NSAttributedString.Key.link: url.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed) ?? "",
+                                      NSAttributedString.Key.underlineColor: color,
+                                      NSAttributedString.Key.foregroundColor: color,
+                                      NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single] as [NSAttributedString.Key : Any]
+                    handler(attributed, NSRange(substringRange, in: text))
+                }
+            }
+        }
+    }
+}

@@ -19,6 +19,18 @@ public extension UIAlertController {
     }
     
     /**
+     데이터피커 불러오기
+     
+     - returns: UIDatePicker?
+     */
+    public var datePicker: UIDatePicker? {
+        guard let contentViewController = self.value(forKey: "contentViewController") as? UIViewController else { return nil }
+        if contentViewController.view == nil { return nil }
+        guard let datePicker = contentViewController.view.subviews.compactMap({ $0 as? UIDatePicker }).first else { return nil }
+        return datePicker
+    }
+    
+    /**
      얼럿컨트롤러 만들기
      
      - parameter title: String?
@@ -232,6 +244,37 @@ public extension UIAlertController {
         textViewController.view = view
         textViewController.preferredContentSize.height = 100
         self.setValue(textViewController, forKey: "contentViewController")
+        
+        return self
+    }
+    
+    /**
+     데이터피커 추가
+     
+     - parameter handler: ((UIDatePicker) -> Void)?
+     - returns: UIAlertController
+     */
+    @discardableResult
+    public func appendDatePicker(_ handler: ((UIDatePicker) -> Void)? = nil) -> UIAlertController {
+        let viewController = UIViewController()
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        let datePicker = UIDatePicker()
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        if let locale = (UserDefaults.standard.object(forKey: "AppleLanguages") as? [String])?.first {
+            datePicker.locale = NSLocale(localeIdentifier: locale) as Locale
+        }
+        datePicker.datePickerMode = .date
+        
+        handler?(datePicker)
+        view.addSubview(datePicker)
+        
+        let view_constraint_H = NSLayoutConstraint.constraints(withVisualFormat: "H:|-6-[view]-6-|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": datePicker])
+        let view_constraint_V = NSLayoutConstraint.constraints(withVisualFormat: "V:|-6-[view]-6-|", options: NSLayoutConstraint.FormatOptions.alignAllLeading, metrics: nil, views: ["view": datePicker])
+        view.addConstraints(view_constraint_H)
+        view.addConstraints(view_constraint_V)
+        viewController.view = view
+        viewController.preferredContentSize.height = 300
+        self.setValue(viewController, forKey: "contentViewController")
         
         return self
     }

@@ -163,4 +163,72 @@ public extension String {
         guard let lower = UTF16View.Index(range.lowerBound, within: utf16), let upper = UTF16View.Index(range.upperBound, within: utf16) else { return nil }
         return NSRange(location: lower.encodedOffset, length: upper.encodedOffset - lower.encodedOffset)
     }
+    
+    /**
+     포맷 변경
+     
+     - parameter places: Int 디폴트 6
+     - returns: String
+     */
+    public func decimalFormat(_ places: Int = 6) -> String {
+        guard let value = Double(self) else { return "" }
+        let powValue = pow(10, Double(places))
+        let intValue = Int(value * powValue)
+        return "\(Double(intValue)/powValue)"
+    }
+    
+    /**
+     데이트 포맷 변환
+     
+     - parameter inputFormat: String
+     - parameter outputFormat: String
+     - returns: String
+     */
+    public func toDateString(inputFormat: String, outputFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = inputFormat
+        guard let date = dateFormatter.date(from: self) else { return "" }
+        dateFormatter.dateFormat = outputFormat
+        return dateFormatter.string(from: date)
+    }
+    
+    /**
+     데이트 포맷 변환
+     
+     - parameter regex: String
+     - returns: [String]
+     */
+    public func matches(_ regex: String) -> [String] {
+        do {
+            let regex = try NSRegularExpression(pattern: regex)
+            let results = regex.matches(in: self, range: NSRange(self.startIndex..., in: self))
+            return results.map {
+                guard let range = Range($0.range, in: self) else { return "" }
+                return String(self[range])
+                }.filter({ $0 != "" })
+        } catch {
+            return []
+        }
+    }
+    
+    /**
+     String에서 URL링크 가져오기
+     
+     - parameter handler: ((String) -> Void)
+     */
+    public func urlLink(_ handler: ((String) -> Void)) {
+        do {
+            let text = self.replacingOccurrences(of: "[\\U00010000-\\U0010FFFF]", with: "", options: String.CompareOptions.regularExpression, range: nil)
+            let mentionExpression = try NSRegularExpression(pattern: "(?i)https?://(?:www\\.)?\\S+(?:/|\\b)", options: NSRegularExpression.Options.allowCommentsAndWhitespace)
+            let matches = mentionExpression.matches(in: text, options: NSRegularExpression.MatchingOptions.init(rawValue: 0), range: NSMakeRange(0, text.count))
+            for match in matches {
+                let range = match.range
+                let matchString = text.substring(from: range.location, length: range.length)
+                if !(matchString.lowercased().hasSuffix(".png") || matchString.lowercased().hasSuffix(".jpg") || matchString.lowercased().hasSuffix(".jpeg") || matchString.lowercased().hasSuffix(".gif")) {
+                    handler(matchString)
+                    return
+                }
+            }
+        } catch { }
+    }
 }
