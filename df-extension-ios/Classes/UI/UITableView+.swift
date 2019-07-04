@@ -13,7 +13,7 @@ public extension UITableView {
      - parameter notification: Notification? 디폴트 nil. 키보드 노티피케이션
      - parameter bottomConstraint: NSLayoutConstraint 키보드가 올라가거나 내려갔을때 키보드에 따라 이동할 뷰의 제약
      */
-    public func chatKeyboardShow(_ view: UIView, notification: Notification? = nil, bottomConstraint: NSLayoutConstraint) {
+    func chatKeyboardShow(_ view: UIView, notification: Notification? = nil, bottomConstraint: NSLayoutConstraint) {
         var animationDuration: Double = 0.3
         var animationOptions: AnimationOptions = [.beginFromCurrentState]
         var newBottomConstraint: CGFloat? = nil
@@ -51,7 +51,7 @@ public extension UITableView {
      - parameter bottomConstraint: NSLayoutConstraint 키보드가 올라가거나 내려갔을때 키보드에 따라 이동할 뷰의 제약
      - parameter lastRowIndex: Int 채팅 내용의 어레이 마지막 인덱스
      */
-    public func chatKeyboardHideRow(_ view: UIView, notification: Notification? = nil, bottomConstraint: NSLayoutConstraint, lastRowIndex: Int) {
+    func chatKeyboardHideRow(_ view: UIView, notification: Notification? = nil, bottomConstraint: NSLayoutConstraint, lastRowIndex: Int) {
         var animationDuration: Double = 0.3
         var animationOptions: AnimationOptions = [.beginFromCurrentState]
         var newBottomConstraint: CGFloat? = nil
@@ -96,7 +96,7 @@ public extension UITableView {
      - parameter bottomConstraint: NSLayoutConstraint 키보드가 올라가거나 내려갔을때 키보드에 따라 이동할 뷰의 제약
      - parameter lastSectionIndex: Int 채팅 내용의 어레이 마지막 인덱스
      */
-    public func chatKeyboardHideSection(_ view: UIView, notification: Notification? = nil, bottomConstraint: NSLayoutConstraint, lastSectionIndex: Int) {
+    func chatKeyboardHideSection(_ view: UIView, notification: Notification? = nil, bottomConstraint: NSLayoutConstraint, lastSectionIndex: Int) {
         var animationDuration: Double = 0.3
         var animationOptions: AnimationOptions = [.beginFromCurrentState]
         var newBottomConstraint: CGFloat? = nil
@@ -138,7 +138,7 @@ public extension UITableView {
      - parameter value: CGFloat 이전 높이와 현재높이의 차이값
      - parameter animated: Bool 디폴트 false
      */
-    public func chatKeyboardDynamicHeight(_ changeBetweenValue: CGFloat, animated: Bool = false) {
+    func chatKeyboardDynamicHeight(_ changeBetweenValue: CGFloat, animated: Bool = false) {
         let offsetY = self.contentOffset.y
         self.setContentOffset(CGPoint(x: self.contentOffset.x, y: offsetY-changeBetweenValue), animated: animated)
     }

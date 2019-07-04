@@ -32,7 +32,7 @@ public extension UIDevice {
      - parameter machineString: String
      - returns: String
      */
-    public func modelName(machineString: String) -> String {
+    func modelName(machineString: String) -> String {
         #if targetEnvironment(simulator)
         if let dir = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] {
             return self.getMachineString(dir)
@@ -49,7 +49,7 @@ public extension UIDevice {
      - parameter machineString: String
      - returns: UIDeviceModelType
      */
-    public func modelNameType(machineString: String) -> UIDeviceModelType {
+    func modelNameType(machineString: String) -> UIDeviceModelType {
         #if targetEnvironment(simulator)
         if let dir = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] {
             return self.getModelType(dir)
@@ -157,7 +157,7 @@ public extension UIDevice {
 }
 
 public extension UIDevice {
-    public var modelName: String {
+    var modelName: String {
         var systemInfo = utsname()
         _ = uname(&systemInfo)
         let machineString = Mirror(reflecting: systemInfo.machine).children.reduce("") { identifier, element in
@@ -167,7 +167,7 @@ public extension UIDevice {
         return self.modelName(machineString: machineString)
     }
 
-    public var modelNameType: UIDeviceModelType {
+    var modelNameType: UIDeviceModelType {
         var systemInfo = utsname()
         _ = uname(&systemInfo)
         let machineString = Mirror(reflecting: systemInfo.machine).children.reduce("") { identifier, element in

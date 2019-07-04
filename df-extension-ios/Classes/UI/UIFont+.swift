@@ -10,7 +10,7 @@ public extension UIFont {
      폰트네임
      - returns: [String]
      */
-    public static var fontNames: [String] {
+    static var fontNames: [String] {
         var fontArray = [String]()
         for familyName in UIFont.familyNames {
             for fontName in UIFont.fontNames(forFamilyName: familyName) {

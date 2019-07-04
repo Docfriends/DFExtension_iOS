@@ -11,7 +11,7 @@ public extension UIImageView {
      
      - returns: CGRect
      */
-    public var frameForImageInImageViewAspectFit: CGRect {
+    var frameForImageInImageViewAspectFit: CGRect {
         if  let img = self.image {
             let imageRatio = img.size.width / img.size.height
             let viewRatio = self.frame.size.width / self.frame.size.height

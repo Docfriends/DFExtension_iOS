@@ -12,7 +12,7 @@ public extension UICollectionViewLayout {
      - parameter size: CGSize
      - returns: UICollectionViewLayout
      */
-    public static func horizontalLayout(_ size: CGSize) -> UICollectionViewLayout {
+    static func horizontalLayout(_ size: CGSize) -> UICollectionViewLayout {
         let flow = UICollectionViewFlowLayout()
         flow.scrollDirection = .horizontal
         flow.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
@@ -28,7 +28,7 @@ public extension UICollectionViewLayout {
      - parameter size: CGSize
      - returns: UICollectionViewLayout
      */
-    public static func verticalLayout(_ size: CGSize) -> UICollectionViewLayout {
+    static func verticalLayout(_ size: CGSize) -> UICollectionViewLayout {
         let flow = UICollectionViewFlowLayout()
         flow.scrollDirection = .vertical
         flow.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)

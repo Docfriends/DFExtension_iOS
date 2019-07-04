@@ -14,7 +14,7 @@ public extension UITextField {
      - parameter string: String
      - returns: Bool
      */
-    public func maxLength(_ maxLength: Int = 200, range: NSRange, string: String) -> Bool {
+    func maxLength(_ maxLength: Int = 200, range: NSRange, string: String) -> Bool {
         return maxLength == -1 ? true : ((self.text?.utf16.count ?? 0) + string.utf16.count - range.length) <= maxLength
     }
     
@@ -27,7 +27,7 @@ public extension UITextField {
      - parameter selectString: String
      - parameter cancelString: String
      */
-    public func toolBar(_ target: Any?, action: Selector, color: UIColor = UIColor(white: 224/255, alpha: 1), selectString: String = "Done", cancelString: String = "Cancel") {
+    func toolBar(_ target: Any?, action: Selector, color: UIColor = UIColor(white: 224/255, alpha: 1), selectString: String = "Done", cancelString: String = "Cancel") {
         let toolBar =  UIToolbar()
         toolBar.barStyle = .default
         toolBar.isTranslucent = true

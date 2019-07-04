@@ -11,7 +11,7 @@ public extension String {
      
      - returns: String
      */
-    public var euckrEncoding: String {
+    var euckrEncoding: String {
         let rawEncoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.EUC_KR.rawValue))
         let encoding = String.Encoding(rawValue: rawEncoding)
         let eucKRStringData = self.data(using: encoding) ?? Data()
@@ -39,7 +39,7 @@ public extension String {
      
      - returns: String
      */
-    public var localized: String {
+    var localized: String {
         return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
     }
     
@@ -48,7 +48,7 @@ public extension String {
      
      - returns: Range<Index>
      */
-    public var range: Range<Index> {
+    var range: Range<Index> {
         return self.index(self.startIndex, offsetBy: 0)..<self.index(self.startIndex, offsetBy: self.count-1)
     }
     
@@ -57,7 +57,7 @@ public extension String {
      
      - returns: AnyObject
      */
-    public var parseJSON: AnyObject {
+    var parseJSON: AnyObject {
         guard let data = (self).data(using: String.Encoding.utf8) else { return "" as AnyObject }
         do {
             return try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
@@ -72,7 +72,7 @@ public extension String {
      
      - returns: Data
      */
-    public var base64Decoding: Data {
+    var base64Decoding: Data {
         return Data(base64Encoded: self, options:NSData.Base64DecodingOptions(rawValue: 0)) ?? Data()
     }
     
@@ -81,7 +81,7 @@ public extension String {
      
      - returns: Bool
      */
-    public var isValidEmail: Bool {
+    var isValidEmail: Bool {
         let regEx = "^(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?(?:(?:(?:[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+(?:\\.[-A-Za-z0-9!#$%&’*+/=?^_'{|}~]+)*)|(?:\"(?:(?:(?:(?: )*(?:(?:[!#-Z^-~]|\\[|\\])|(?:\\\\(?:\\t|[ -~]))))+(?: )*)|(?: )+)\"))(?:@)(?:(?:(?:[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)(?:\\.[A-Za-z0-9](?:[-A-Za-z0-9]{0,61}[A-Za-z0-9])?)*)|(?:\\[(?:(?:(?:(?:(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))\\.) {3}(?:[0-9]|(?:[1-9][0-9])|(?:1[0-9][0-9])|(?:2[0-4][0-9])|(?:25[0-5]))))|(?:(?:(?: )*[!-Z^-~])*(?: )*)|(?:[Vv][0-9A-Fa-f]+\\.[-A-Za-z0-9._~!$&'()*+,;=:]+))\\])))(?:(?:(?:(?: )*(?:(?:(?:\\t| )*\\r\\n)?(?:\\t| )+))+(?: )*)|(?: )+)?$"
         return NSPredicate(format:"SELF MATCHES %@", regEx).evaluate(with: self)
     }
@@ -91,7 +91,7 @@ public extension String {
      
      - returns: Bool
      */
-    public var isValidUrl: Bool {
+    var isValidUrl: Bool {
         do {
             let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
             if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.endIndex.encodedOffset)) {
@@ -109,7 +109,7 @@ public extension String {
      
      - returns: Bool
      */
-    public var isValidKo: Bool {
+    var isValidKo: Bool {
         let regEx = ".*[ㄱ-ㅎㅏ-ㅣ가-힣]+.*"
         return NSPredicate(format: "SELF MATCHES %@", regEx).evaluate(with: self)
     }
@@ -120,7 +120,7 @@ public extension String {
      - parameter comment: String
      - returns: String
      */
-    public func localizedWithComment(_ comment: String = "") -> String {
+    func localizedWithComment(_ comment: String = "") -> String {
         return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: comment)
     }
     
@@ -132,7 +132,7 @@ public extension String {
      - parameter to: Int
      - returns: String
      */
-    public func substring(from: Int = 0, to: Int = -1) -> String {
+    func substring(from: Int = 0, to: Int = -1) -> String {
         var toTmp = to
         if toTmp < 0 { toTmp = self.count + toTmp }
         let range = self.index(self.startIndex, offsetBy: from)..<self.index(self.startIndex, offsetBy: toTmp+1)
@@ -147,7 +147,7 @@ public extension String {
      - parameter length: Int
      - returns: String
      */
-    public func substring(from:Int = 0, length: Int) -> String {
+    func substring(from:Int = 0, length: Int) -> String {
         let range = self.index(self.startIndex, offsetBy: from)..<self.index(self.startIndex, offsetBy: from+length)
         return String(self[range])
     }
@@ -158,7 +158,7 @@ public extension String {
      - parameter words: String
      - returns: NSRange?
      */
-    public func nsRange(_ words: String) -> NSRange? {
+    func nsRange(_ words: String) -> NSRange? {
         guard let range = self.range(of: words) else { return nil }
         guard let lower = UTF16View.Index(range.lowerBound, within: utf16), let upper = UTF16View.Index(range.upperBound, within: utf16) else { return nil }
         return NSRange(location: lower.encodedOffset, length: upper.encodedOffset - lower.encodedOffset)
@@ -170,7 +170,7 @@ public extension String {
      - parameter places: Int 디폴트 6
      - returns: String
      */
-    public func decimalFormat(_ places: Int = 6) -> String {
+    func decimalFormat(_ places: Int = 6) -> String {
         guard let value = Double(self) else { return "" }
         let powValue = pow(10, Double(places))
         let intValue = Int(value * powValue)
@@ -184,7 +184,7 @@ public extension String {
      - parameter outputFormat: String
      - returns: String
      */
-    public func toDateString(inputFormat: String, outputFormat: String) -> String {
+    func toDateString(inputFormat: String, outputFormat: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = inputFormat
         guard let date = dateFormatter.date(from: self) else { return "" }
@@ -198,7 +198,7 @@ public extension String {
      - parameter regex: String
      - returns: [String]
      */
-    public func matches(_ regex: String) -> [String] {
+    func matches(_ regex: String) -> [String] {
         do {
             let regex = try NSRegularExpression(pattern: regex)
             let results = regex.matches(in: self, range: NSRange(self.startIndex..., in: self))
@@ -216,7 +216,7 @@ public extension String {
      
      - parameter handler: ((String) -> Void)
      */
-    public func urlLink(_ handler: ((String) -> Void)) {
+    func urlLink(_ handler: ((String) -> Void)) {
         do {
             let text = self.replacingOccurrences(of: "[\\U00010000-\\U0010FFFF]", with: "", options: String.CompareOptions.regularExpression, range: nil)
             let mentionExpression = try NSRegularExpression(pattern: "(?i)https?://(?:www\\.)?\\S+(?:/|\\b)", options: NSRegularExpression.Options.allowCommentsAndWhitespace)

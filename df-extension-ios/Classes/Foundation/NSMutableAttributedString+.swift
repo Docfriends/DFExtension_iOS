@@ -18,7 +18,7 @@ public extension NSMutableAttributedString {
      - parameter color: UIColor? 이미지 색. nil이나 생략하면 이미지 원래 색
      - parameter rect: CGRect 이미지 사이즈
      */
-    public func attachment(_ name: String, color: UIColor? = nil, rect: CGRect) {
+    func attachment(_ name: String, color: UIColor? = nil, rect: CGRect) {
         let attachment = NSTextAttachment()
         if let color = color {
             guard let image = UIImage(named: name) else { return }
@@ -55,7 +55,7 @@ public extension NSAttributedString {
      - parameter color: UIColor
      - parameter handler: @escaping (([NSAttributedString.Key : Any], NSRange) -> Void)
      */
-    public func urlLink(_ color: UIColor, handler: @escaping (([NSAttributedString.Key : Any], NSRange) -> Void)) {
+    func urlLink(_ color: UIColor, handler: @escaping (([NSAttributedString.Key : Any], NSRange) -> Void)) {
         let text = self.string
         text.urlLink { (url) in
             if let range = text.range(of: url) {

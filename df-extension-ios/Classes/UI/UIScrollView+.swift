@@ -11,7 +11,7 @@ public extension UIScrollView {
      
      - returns: CGFloat
      */
-    public var deltaOffsetY: CGFloat {
+    var deltaOffsetY: CGFloat {
         let currentOffset = self.contentOffset.y
         let maximumOffset = self.contentSize.height - self.frame.size.height
         let deltaOffset = maximumOffset - currentOffset
@@ -23,7 +23,7 @@ public extension UIScrollView {
      
      - returns: CGFloat
      */
-    public var deltaOffsetX: CGFloat {
+    var deltaOffsetX: CGFloat {
         let currentOffset = self.contentOffset.x
         let maximumOffset = self.contentSize.width - self.frame.size.width
         let deltaOffset = maximumOffset - currentOffset
@@ -36,7 +36,7 @@ public extension UIScrollView {
      
      - parameter animated: Bool
      */
-    public func scrollToTop(_ animated: Bool = true) {
+    func scrollToTop(_ animated: Bool = true) {
         self.setContentOffset(CGPoint(x: 0, y: -self.contentInset.top), animated: animated)
     }
     
@@ -45,7 +45,7 @@ public extension UIScrollView {
      
      - parameter animated: Bool
      */
-    public func scrollToBottom(_ animated: Bool = true) {
+    func scrollToBottom(_ animated: Bool = true) {
         self.setContentOffset(CGPoint(x: 0, y: self.contentSize.height - self.bounds.size.height), animated: animated)
     }
 }

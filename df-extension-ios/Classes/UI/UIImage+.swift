@@ -13,7 +13,7 @@ public extension UIImage {
      - parameter hasAlpha: Bool 디폴트 false
      - returns: UIImage?
      */
-    public func resize(_ size: CGSize, scale: CGFloat = 1, hasAlpha: Bool = false) -> UIImage? {
+    func resize(_ size: CGSize, scale: CGFloat = 1, hasAlpha: Bool = false) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(size, hasAlpha, scale)
         self.draw(in: CGRect(origin: CGPoint.zero, size: size))
         let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
@@ -25,7 +25,7 @@ public extension UIImage {
      - parameter percentage: CGFloat
      - returns: UIImage?
      */
-    public func rePercentage(_ percentage: CGFloat) -> UIImage {
+    func rePercentage(_ percentage: CGFloat) -> UIImage {
         guard let data = self.jpegData(compressionQuality: percentage) else { return UIImage() }
         return UIImage(data: data) ?? UIImage()
     }
@@ -36,7 +36,7 @@ public extension UIImage {
      - parameter percent: CGFloat 디폴트 0.15
      - parameter handler: ((UIImage) -> Void)
      */
-    public func resized(size: CGFloat = 1000, percent: CGFloat = 0.15, handler: @escaping ((UIImage) -> Void)) {
+    func resized(size: CGFloat = 1000, percent: CGFloat = 0.15, handler: @escaping ((UIImage) -> Void)) {
         var width: CGFloat = 0
         var height: CGFloat = 0
         if self.size.width > self.size.height {
@@ -58,7 +58,7 @@ public extension UIImage {
      - parameter color: UIColor
      - returns: UIImage?
      */
-    public func rendering(_ color: UIColor) -> UIImage? {
+    func rendering(_ color: UIColor) -> UIImage? {
         let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
         UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
         if let context = UIGraphicsGetCurrentContext() {

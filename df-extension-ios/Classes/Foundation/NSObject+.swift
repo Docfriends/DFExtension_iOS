@@ -15,7 +15,7 @@ public extension NSObject {
      
      - returns: String
      */
-    public var classNameToString: String {
+    var classNameToString: String {
         return NSStringFromClass(type(of: self))
     }
     
@@ -28,7 +28,7 @@ public extension NSObject {
      
      - returns: String
      */
-    public static var classNameToString: String {
+    static var classNameToString: String {
         return NSStringFromClass(self).components(separatedBy: ".").last ?? ""
     }
 }

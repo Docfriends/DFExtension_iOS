@@ -18,7 +18,7 @@ public extension Array {
      - parameter prettyPrinted: Bool값 디폴트는 false. prettyPrinted가 true로 하면 공백과 들여쓰기를 사용하여 출력을 보다 쉽게 읽을수 있는 옵션. [Apple 문서 참고](https://developer.apple.com/documentation/foundation/jsonserialization/writingoptions/1418364-prettyprinted)
      - returns: JSON 형태의 String값
      */
-    public func JSONStringify(_ prettyPrinted: Bool = false) -> String {
+    func JSONStringify(_ prettyPrinted: Bool = false) -> String {
         let options = prettyPrinted ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions(rawValue: 0)
         if JSONSerialization.isValidJSONObject(self) {
             do {

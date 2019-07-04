@@ -11,7 +11,7 @@ public extension CGFloat {
      
      - returns: Float
      */
-    public var degreesToRadians: CGFloat {
+    var degreesToRadians: CGFloat {
         return (self * CGFloat.pi / 180)
     }
     
@@ -20,7 +20,7 @@ public extension CGFloat {
      
      - returns: Float
      */
-    public var radiansToDegrees: CGFloat {
+    var radiansToDegrees: CGFloat {
         return (self * 180 / CGFloat.pi)
     }
     
@@ -29,7 +29,7 @@ public extension CGFloat {
      
      - returns: Float
      */
-    public var abs: CGFloat {
+    var abs: CGFloat {
         return self > 0 ? self : -self
     }
     
@@ -38,7 +38,7 @@ public extension CGFloat {
      
      - returns: String
      */
-    public var priceComma: String {
+    var priceComma: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         return numberFormatter.string(from: NSNumber(value: Float(self))) ?? "0"

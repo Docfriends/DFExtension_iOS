@@ -9,7 +9,7 @@ public typealias DateTupleInt = (year: Int?, month: Int?, day: Int?, hour: Int?,
 
 public extension Date {
     
-    public init(milliseconds: Int) {
+    init(milliseconds: Int) {
         self = Date(timeIntervalSince1970: TimeInterval(milliseconds / 1000))
     }
     
@@ -19,7 +19,7 @@ public extension Date {
      - returns: String
      */
     
-    public var millisecondsSince1970: String {
+    var millisecondsSince1970: String {
         let date = (self.timeIntervalSince1970 * 1000.0).rounded()
         let value = "\(date)"
         guard let milliseconds = value.split(separator: ".").first else {
@@ -33,7 +33,7 @@ public extension Date {
      
      - returns: DateTuple
      */
-    public var dateTuple: DateTuple {
+    var dateTuple: DateTuple {
         let calendar = Calendar.current
         
         let year = (calendar as NSCalendar).components(.year, from: self).year ?? 1990
@@ -58,7 +58,7 @@ public extension Date {
      
      - returns: DateTuple
      */
-    public var dateTupleInt: DateTupleInt {
+    var dateTupleInt: DateTupleInt {
         let calendar = Calendar.current
         
         let year = (calendar as NSCalendar).components(.year, from: self).year
@@ -77,7 +77,7 @@ public extension Date {
      - parameter of: String
      - returns: String
      */
-    public func getDate(_ of: String = "-") -> String {
+    func getDate(_ of: String = "-") -> String {
         let tuple = self.dateTuple
         return "\(tuple.year)\(of)\(tuple.month)\(of)\(tuple.day)"
     }
@@ -88,7 +88,7 @@ public extension Date {
      - parameter of: String
      - returns: String
      */
-    public func getTime(_ of: String = ":") -> String {
+    func getTime(_ of: String = ":") -> String {
         let tuple = self.dateTuple
         return "\(tuple.hour)\(of)\(tuple.minute)\(of)\(tuple.second)"
     }
@@ -99,7 +99,7 @@ public extension Date {
      - parameter toDate: Date
      - returns: Int
      */
-    public func betweenDays(_ toDate: Date) -> Int {
+    func betweenDays(_ toDate: Date) -> Int {
         return Calendar.current.dateComponents([.day], from: self, to: toDate).day ?? 0
     }
     
@@ -109,7 +109,7 @@ public extension Date {
      - parameter toDate: Date
      - returns: Bool
      */
-    public func equalYear(_ toDate: Date) -> Bool {
+    func equalYear(_ toDate: Date) -> Bool {
         let currentTuple = self.dateTuple
         let dateTuple = toDate.dateTuple
         return currentTuple.year == dateTuple.year
@@ -121,7 +121,7 @@ public extension Date {
      - parameter toDate: Date
      - returns: Bool
      */
-    public func equalMonth(_ toDate: Date) -> Bool {
+    func equalMonth(_ toDate: Date) -> Bool {
         let currentTuple = self.dateTuple
         let dateTuple = toDate.dateTuple
         return currentTuple.year == dateTuple.year && currentTuple.month == dateTuple.month
@@ -133,7 +133,7 @@ public extension Date {
      - parameter toDate: Date
      - returns: Bool
      */
-    public func equalDay(_ toDate: Date) -> Bool {
+    func equalDay(_ toDate: Date) -> Bool {
         let currentTuple = self.dateTuple
         let dateTuple = toDate.dateTuple
         return currentTuple.year == dateTuple.year && currentTuple.month == dateTuple.month && currentTuple.day == dateTuple.day
@@ -148,7 +148,7 @@ public extension Date {
      - parameter locale: Locale = Locale.current
      - returns: Date?
      */
-    public static func format(_ date: String, format: String, timeZone: TimeZone = TimeZone.current, locale: NSLocale = NSLocale(localeIdentifier: Locale.current.identifier)) -> Date?{
+    static func format(_ date: String, format: String, timeZone: TimeZone = TimeZone.current, locale: NSLocale = NSLocale(localeIdentifier: Locale.current.identifier)) -> Date?{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         dateFormatter.timeZone = timeZone

@@ -16,7 +16,7 @@ public extension UITabBarItem {
      - returns: UITabBarItem
      */
     @discardableResult
-    public func setEntity(_ title: String, imageName: String, color: UIColor? = nil, selectedColor: UIColor? = nil) -> UITabBarItem {
+    func setEntity(_ title: String, imageName: String, color: UIColor? = nil, selectedColor: UIColor? = nil) -> UITabBarItem {
         self.imageInsets = UIEdgeInsets.zero
         self.title = title
         if let color = color {
@@ -42,7 +42,7 @@ public extension UITabBarItem {
      - returns: UITabBarItem
      */
     @discardableResult
-    public func setEntity(_ title: String, image: UIImage?, color: UIColor? = nil, selectedColor: UIColor? = nil) -> UITabBarItem {
+    func setEntity(_ title: String, image: UIImage?, color: UIColor? = nil, selectedColor: UIColor? = nil) -> UITabBarItem {
         self.imageInsets = UIEdgeInsets.zero
         self.title = title
         if let color = color {
@@ -67,7 +67,7 @@ public extension UITabBarItem {
      - returns: UITabBarItem
      */
     @discardableResult
-    public func setEntity(_ title: String, image: UIImage?, selectedImage: UIImage?) -> UITabBarItem {
+    func setEntity(_ title: String, image: UIImage?, selectedImage: UIImage?) -> UITabBarItem {
         self.imageInsets = UIEdgeInsets.zero
         self.title = title
         self.image = image

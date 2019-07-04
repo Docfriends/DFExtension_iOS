@@ -11,7 +11,7 @@ public extension UITextView {
      
      - returns: CGRect
      */
-    public var changeContentSize: CGRect {
+    var changeContentSize: CGRect {
         let fixedWidth = self.frame.size.width
         self.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
         let newSize = self.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
@@ -28,7 +28,7 @@ public extension UITextView {
      - parameter string: String
      - returns: Bool
      */
-    public func maxLength(_ maxLength: Int = 2000, range: NSRange, text: String) -> Bool {
+    func maxLength(_ maxLength: Int = 2000, range: NSRange, text: String) -> Bool {
         return maxLength == -1 ? true : (self.text.utf16.count + text.utf16.count - range.length) <= maxLength
     }
 }

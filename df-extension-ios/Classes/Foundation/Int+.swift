@@ -11,7 +11,7 @@ public extension Int {
      
      - returns: Double
      */
-    public var degreesToRadians: Double {
+    var degreesToRadians: Double {
         return (Double(self) * Double.pi / 180)
     }
     
@@ -20,7 +20,7 @@ public extension Int {
      
      - returns: Double
      */
-    public var radiansToDegrees: Double {
+    var radiansToDegrees: Double {
         return (Double(self) * 180 / Double.pi)
     }
     
@@ -29,7 +29,7 @@ public extension Int {
      
      - returns: Double
      */
-    public var abs: Int {
+    var abs: Int {
         return self > 0 ? self : -self
     }
     
@@ -38,7 +38,7 @@ public extension Int {
      
      - returns: String
      */
-    public var priceComma: String {
+    var priceComma: String {
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = NumberFormatter.Style.decimal
         return numberFormatter.string(from: NSNumber(value: self)) ?? "0"

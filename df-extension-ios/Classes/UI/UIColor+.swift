@@ -49,35 +49,35 @@ public extension UIColor {
      
      - returns: CGFloat
      */
-    public var red: CGFloat { return CIColor(color: self).red }
+    var red: CGFloat { return CIColor(color: self).red }
     
     /**
      green값
      
      - returns: CGFloat
      */
-    public var green: CGFloat { return CIColor(color: self).green }
+    var green: CGFloat { return CIColor(color: self).green }
     
     /**
      blue값
      
      - returns: CGFloat
      */
-    public var blue: CGFloat { return CIColor(color: self).blue }
+    var blue: CGFloat { return CIColor(color: self).blue }
     
     /**
      alpha값
      
      - returns: CGFloat
      */
-    public var alpha: CGFloat { return CIColor(color: self).alpha }
+    var alpha: CGFloat { return CIColor(color: self).alpha }
     
     /**
      hex값
      
      - returns: CGFloat
      */
-    public var toHexString: String {
+    var toHexString: String {
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0

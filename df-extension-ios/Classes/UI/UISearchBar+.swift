@@ -11,7 +11,7 @@ public extension UISearchBar {
      
      - returns: UITextField
      */
-    public var textField: UITextField {
+    var textField: UITextField {
         guard let textField = self.value(forKey: "_searchField") as? UITextField else {
             return UITextField()
         }
