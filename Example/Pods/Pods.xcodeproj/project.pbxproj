@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1805C1D821E34B51006235E7 /* UISearchBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805C1CB21E34B51006235E7 /* UISearchBar+.swift */; };
 		1805C1D921E34B51006235E7 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805C1CC21E34B51006235E7 /* UIView+.swift */; };
 		1805C1DA21E34B51006235E7 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805C1CD21E34B51006235E7 /* UITableView+.swift */; };
 		1805C1DB21E34B51006235E7 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805C1CE21E34B51006235E7 /* UIImageView+.swift */; };
@@ -60,7 +59,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1805C1CB21E34B51006235E7 /* UISearchBar+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISearchBar+.swift"; sourceTree = "<group>"; };
 		1805C1CC21E34B51006235E7 /* UIView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		1805C1CD21E34B51006235E7 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		1805C1CE21E34B51006235E7 /* UIImageView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
@@ -176,7 +174,6 @@
 				1805C1D221E34B51006235E7 /* UIImage+.swift */,
 				1805C1CE21E34B51006235E7 /* UIImageView+.swift */,
 				1805C1D121E34B51006235E7 /* UIScrollView+.swift */,
-				1805C1CB21E34B51006235E7 /* UISearchBar+.swift */,
 				1805C1CF21E34B51006235E7 /* UITabBarItem+.swift */,
 				1805C1CD21E34B51006235E7 /* UITableView+.swift */,
 				1805C1D321E34B51006235E7 /* UITextField+.swift */,
@@ -455,7 +452,6 @@
 				1805C1E221E34B51006235E7 /* UICollectionViewLayout+.swift in Sources */,
 				3E7AB2D81A7C20E9CA43FCD5DF979416 /* df-extension-ios-dummy.m in Sources */,
 				1805C1E421E34B51006235E7 /* UITextView+.swift in Sources */,
-				1805C1D821E34B51006235E7 /* UISearchBar+.swift in Sources */,
 				1805C1DF21E34B51006235E7 /* UIImage+.swift in Sources */,
 				1805C1F421E34B5F006235E7 /* Float+.swift in Sources */,
 				1805C1EF21E34B5F006235E7 /* Date+.swift in Sources */,
@@ -552,6 +548,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 0.1.5;
 				MODULEMAP_FILE = "Target Support Files/df-extension-ios/df-extension-ios.modulemap";
 				PRODUCT_MODULE_NAME = df_extension_ios;
 				PRODUCT_NAME = df_extension_ios;
@@ -619,6 +616,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 0.1.5;
 				MODULEMAP_FILE = "Target Support Files/df-extension-ios/df-extension-ios.modulemap";
 				PRODUCT_MODULE_NAME = df_extension_ios;
 				PRODUCT_NAME = df_extension_ios;
