@@ -94,8 +94,10 @@ public extension String {
     var isValidUrl: Bool {
         do {
             let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)
-            if let match = detector.firstMatch(in: self, options: [], range: NSRange(location: 0, length: self.endIndex.encodedOffset)) {
-                return match.range.length == self.endIndex.encodedOffset
+            guard let range = self.range(of: self) else { return false }
+            let nsRange = NSRange(range, in: self)
+            if let match = detector.firstMatch(in: self, options: [], range: nsRange) {
+                return match.range.length == nsRange.length
             } else {
                 return false
             }
@@ -159,9 +161,10 @@ public extension String {
      - returns: NSRange?
      */
     func nsRange(_ words: String) -> NSRange? {
-        guard let range = self.range(of: words) else { return nil }
-        guard let lower = UTF16View.Index(range.lowerBound, within: utf16), let upper = UTF16View.Index(range.upperBound, within: utf16) else { return nil }
-        return NSRange(location: lower.encodedOffset, length: upper.encodedOffset - lower.encodedOffset)
+        if let range = self.range(of: words) {
+            return NSRange(range, in: self)
+        }
+        return nil
     }
     
     /**
