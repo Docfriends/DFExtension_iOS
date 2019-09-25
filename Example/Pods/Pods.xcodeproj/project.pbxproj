@@ -30,6 +30,7 @@
 		1805C1F721E34B5F006235E7 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805C1ED21E34B5F006235E7 /* Array+.swift */; };
 		1805C1F821E34B5F006235E7 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805C1EE21E34B5F006235E7 /* Int+.swift */; };
 		1805C1FA21E352B7006235E7 /* UIAlertController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1805C1F921E352B7006235E7 /* UIAlertController+.swift */; };
+		18367051233B463C0019429E /* UISearchBar+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18367050233B463C0019429E /* UISearchBar+.swift */; };
 		2582E10ECD1FFCF75E00E2C03073B8E6 /* Pods-df-extension-ios_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E8D46FDB1345A1047A45B3FBD1EDF9B /* Pods-df-extension-ios_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E7AB2D81A7C20E9CA43FCD5DF979416 /* df-extension-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FD59117114E5858D0CF1598729C4F2B /* df-extension-ios-dummy.m */; };
 		6A2317CB118CC83970533591C978757D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
@@ -82,6 +83,7 @@
 		1805C1ED21E34B5F006235E7 /* Array+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		1805C1EE21E34B5F006235E7 /* Int+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		1805C1F921E352B7006235E7 /* UIAlertController+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+.swift"; sourceTree = "<group>"; };
+		18367050233B463C0019429E /* UISearchBar+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISearchBar+.swift"; sourceTree = "<group>"; };
 		1E8D46FDB1345A1047A45B3FBD1EDF9B /* Pods-df-extension-ios_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-df-extension-ios_Example-umbrella.h"; sourceTree = "<group>"; };
 		1EF870424B355A3820CB168FC78C49DC /* Pods-df-extension-ios_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-df-extension-ios_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		24D7DBC15D49C464682D8B2EB527527F /* Pods_df_extension_ios_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_df_extension_ios_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,6 +182,7 @@
 				1805C1D721E34B51006235E7 /* UITextView+.swift */,
 				1805C1CC21E34B51006235E7 /* UIView+.swift */,
 				1805C1F921E352B7006235E7 /* UIAlertController+.swift */,
+				18367050233B463C0019429E /* UISearchBar+.swift */,
 			);
 			name = UI;
 			path = "df-extension-ios/Classes/UI";
@@ -454,6 +457,7 @@
 				1805C1E421E34B51006235E7 /* UITextView+.swift in Sources */,
 				1805C1DF21E34B51006235E7 /* UIImage+.swift in Sources */,
 				1805C1F421E34B5F006235E7 /* Float+.swift in Sources */,
+				18367051233B463C0019429E /* UISearchBar+.swift in Sources */,
 				1805C1EF21E34B5F006235E7 /* Date+.swift in Sources */,
 				1805C1DB21E34B51006235E7 /* UIImageView+.swift in Sources */,
 				1805C1DD21E34B51006235E7 /* UIColor+.swift in Sources */,
@@ -548,7 +552,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 0.1.6;
+				MARKETING_VERSION = 0.1.7;
 				MODULEMAP_FILE = "Target Support Files/df-extension-ios/df-extension-ios.modulemap";
 				PRODUCT_MODULE_NAME = df_extension_ios;
 				PRODUCT_NAME = df_extension_ios;
@@ -616,7 +620,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 0.1.6;
+				MARKETING_VERSION = 0.1.7;
 				MODULEMAP_FILE = "Target Support Files/df-extension-ios/df-extension-ios.modulemap";
 				PRODUCT_MODULE_NAME = df_extension_ios;
 				PRODUCT_NAME = df_extension_ios;
